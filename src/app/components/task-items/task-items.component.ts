@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-task-items',
   templateUrl: './task-items.component.html',
-  styleUrls: ['./task-items.component.scss']
+  styleUrls: ['./task-items.component.scss'],
 })
 export class TaskItemsComponent implements OnInit {
+  @Input() title: string = '';
+  @Input() description: string = '';
+  @Input() done: boolean = false;
 
-  constructor() { }
+  faTimes = faTimes;
 
-  ngOnInit(): void {
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  doneTask() {
+    this.done = !this.done
   }
-
 }

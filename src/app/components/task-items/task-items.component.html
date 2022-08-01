@@ -1,1 +1,15 @@
-<p>task-items works!</p>
+<div (click)="doneTask()" [ngClass]="done ? 'done' : ''" class="task-item">
+  <div class="flex justify-between">
+    <div>
+      <h4 class="font-bold text-base mb-1">title</h4>
+      <p class="text-slate-600 text-sm">description</p>
+    </div>
+    <div>
+      <fa-icon
+        class="text-2xl"
+        style="color: #dc2626"
+        [icon]="faTimes"
+      ></fa-icon>
+    </div>
+  </div>
+</div>
