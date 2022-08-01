@@ -1,8 +1,8 @@
-<div (click)="doneTask()" [ngClass]="done ? 'done' : ''" class="task-item">
+<div (click)="doneTask()" [ngClass]="reminder ? 'done' : ''" class="task-item">
   <div class="flex justify-between">
     <div>
-      <h4 class="font-bold text-base mb-1">title</h4>
-      <p class="text-slate-600 text-sm">description</p>
+      <h4 class="font-bold text-base mb-1">{{ text }}</h4>
+      <p class="text-slate-600 text-sm">{{ day }}</p>
     </div>
     <div>
       <fa-icon

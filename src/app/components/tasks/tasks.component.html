@@ -1,1 +1,5 @@
-<app-task-items></app-task-items>
+<div class="task">
+  <div *ngFor="let task of tasks">
+    <app-task-items [text]="task.text" [day]="task.day"></app-task-items>
+  </div>
+</div>

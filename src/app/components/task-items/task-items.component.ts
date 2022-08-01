@@ -1,7 +1,4 @@
-import { ITasks } from './../../../interfaces/Task';
 import { Component, Input, OnInit } from '@angular/core';
-
-import { TasksService } from './../../services/tasks.service';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,27 +8,17 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./task-items.component.scss'],
 })
 export class TaskItemsComponent implements OnInit {
-  @Input() title: string = '';
-  @Input() description: string = '';
-  @Input() done: boolean = false;
+  @Input() text: string = '';
+  @Input() day: string = '';
+  @Input() reminder: boolean = false;
 
   faTimes = faTimes;
 
-  tasks: ITasks[] = [];
+  constructor() {}
 
-  constructor(private tasksService: TasksService) {}
-
-  ngOnInit(): void {
-    this.getTasks();
-  }
-
-  getTasks() {
-    return this.tasksService.getTasks().subscribe((data) => {
-      this.tasks = data;
-    });
-  }
+  ngOnInit(): void {}
 
   doneTask() {
-    this.done = !this.done;
+    this.reminder = !this.reminder;
   }
 }
