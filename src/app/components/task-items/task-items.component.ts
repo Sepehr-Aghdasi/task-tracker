@@ -1,4 +1,7 @@
+import { ITasks } from './../../../interfaces/Task';
 import { Component, Input, OnInit } from '@angular/core';
+
+import { TasksService } from './../../services/tasks.service';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,11 +17,21 @@ export class TaskItemsComponent implements OnInit {
 
   faTimes = faTimes;
 
-  constructor() {}
+  tasks: ITasks[] = [];
 
-  ngOnInit(): void {}
+  constructor(private tasksService: TasksService) {}
+
+  ngOnInit(): void {
+    this.getTasks();
+  }
+
+  getTasks() {
+    return this.tasksService.getTasks().subscribe((data) => {
+      this.tasks = data;
+    });
+  }
 
   doneTask() {
-    this.done = !this.done
+    this.done = !this.done;
   }
 }
