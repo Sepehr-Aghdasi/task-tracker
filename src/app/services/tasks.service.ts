@@ -1,9 +1,18 @@
 import { Injectable } from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { ITasks } from './../../interfaces/Task';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TasksService {
+  private apiUrl: string = 'http://localhost:5000/tasks';
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
+
+  getTasks(): Observable<ITasks[]> {
+    return this.http.get<ITasks[]>(this.apiUrl);
+  }
 }
