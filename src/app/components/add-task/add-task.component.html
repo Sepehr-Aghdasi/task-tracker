@@ -1,1 +1,55 @@
-<p>add-task works!</p>
+<div class="add-task">
+  <form>
+    <div class="mb-6">
+      <label for="text" class="block mb-2 text-sm font-medium text-gray-900"
+        >task:</label
+      >
+      <div class="mx-2">
+        <input
+          type="text"
+          id="text"
+          class="border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          placeholder="enter the task..."
+          required
+        />
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <label for="time" class="block mb-2 text-sm font-medium text-gray-900"
+        >day & time:</label
+      >
+      <div class="mx-2">
+        <input
+          type="text"
+          id="time"
+          class="border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          placeholder="enter the task..."
+          required
+        />
+      </div>
+    </div>
+
+    <div class="flex items-start mb-6 mx-2">
+      <div class="flex items-center h-5">
+        <input
+          id="reminder"
+          type="checkbox"
+          value=""
+          class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700"
+        />
+      </div>
+      <label for="reminder" class="ml-2 text-sm font-medium text-gray-900"
+        >set reminder</label
+      >
+    </div>
+    <div class="mx-3 mb-8">
+      <button
+        type="submit"
+        class="text-white bg-black hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center"
+      >
+        add task
+      </button>
+    </div>
+  </form>
+</div>
