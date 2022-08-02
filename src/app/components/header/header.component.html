@@ -1,7 +1,13 @@
-<header class="w-full">
+<header class="w-full flex-col">
   <div class="flex justify-between items-center w-full">
     <h1 class="text-3xl font-bold">{{ title }}</h1>
-    <app-button (btnClick)="handleClick()" [text]="btnText"></app-button>
-    <app-add-task></app-add-task>
+    <app-button
+      (btnClick)="toggleAddTask()"
+      [text]="showAddTask ? 'Close' : 'Add Task'"
+      [backgroundColor]="showAddTask ? '#dc2626' : '#075985'"
+    ></app-button>
+  </div>
+  <div class="w-full mt-3 px-2">
+    <app-add-task *ngIf="showAddTask"></app-add-task>
   </div>
 </header>
