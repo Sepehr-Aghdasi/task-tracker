@@ -19,13 +19,19 @@ export class AddTaskComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addTask() {
+  onSubmit() {
     if (!this.text && !this.day) {
       console.log('empty input');
       return;
     }
-    this.onAddTask.emit();
-    console.log(this.text, this.day, this.reminder);
+
+    const newTask: ITasks = {
+      text: this.text,
+      day: this.text,
+      reminder: this.reminder,
+    };
+
+    this.onAddTask.emit(newTask);
 
     this.text = '';
     this.day = '';
