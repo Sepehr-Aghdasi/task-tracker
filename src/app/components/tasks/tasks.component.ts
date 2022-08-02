@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { ITasks } from './../../../interfaces/Task';
 import { TasksService } from './../../services/tasks.service';
+import { AddTaskService } from './../../services/add-task.service';
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -10,7 +12,17 @@ import { TasksService } from './../../services/tasks.service';
 export class TasksComponent implements OnInit {
   tasks: ITasks[] = [];
 
-  constructor(private tasksService: TasksService) {}
+  showAddTask: boolean = false;
+  subscription: Subscription;
+
+  constructor(
+    private tasksService: TasksService,
+    private addTaskService: AddTaskService
+  ) {
+    this.subscription = this.addTaskService.onToggle().subscribe((value) => {
+      this.showAddTask = value;
+    });
+  }
 
   ngOnInit(): void {
     this.getTasks();
@@ -19,6 +31,17 @@ export class TasksComponent implements OnInit {
   getTasks() {
     return this.tasksService.getTasks().subscribe((data) => {
       this.tasks = data;
+    });
+  }
+
+  toggleAddTask() {
+    this.addTaskService.toggleAddTask();
+  }
+
+  addTask(task: ITasks) {
+    console.log(task);
+    this.tasksService.addTask(task).subscribe((task) => {
+      this.tasks.push(task);
     });
   }
 }

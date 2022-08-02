@@ -1,4 +1,7 @@
 <div class="task">
+  <div *ngIf="showAddTask" class="w-full mt-3 px-2">
+    <app-add-task (onAddTask)="addTask($event)"></app-add-task>
+  </div>
   <div *ngFor="let task of tasks">
     <app-task-items [text]="task.text" [day]="task.day"></app-task-items>
   </div>
