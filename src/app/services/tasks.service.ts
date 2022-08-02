@@ -15,4 +15,8 @@ export class TasksService {
   getTasks(): Observable<ITasks[]> {
     return this.http.get<ITasks[]>(this.apiUrl);
   }
+
+  addTask(task: ITasks): Observable<ITasks> {
+    return this.http.post<ITasks>(this.apiUrl, task);
+  }
 }
