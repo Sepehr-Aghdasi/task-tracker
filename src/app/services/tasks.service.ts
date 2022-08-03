@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { ITasks } from './../../interfaces/Task';
+
+const httpOptions = {
+  httpHeader: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -20,7 +27,7 @@ export class TasksService {
     return this.http.post<ITasks>(this.apiUrl, task);
   }
 
-  deleteTask(task:ITasks){
-    return this.http.delete(this.apiUrl + task.id)
+  deleteTask(task: ITasks) {
+    return this.http.delete(this.apiUrl + task.id);
   }
 }
