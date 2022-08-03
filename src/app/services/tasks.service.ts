@@ -8,7 +8,7 @@ import { ITasks } from './../../interfaces/Task';
   providedIn: 'root',
 })
 export class TasksService {
-  private apiUrl: string = 'http://localhost:5000/tasks';
+  private apiUrl: string = 'http://localhost:5000/tasks/';
 
   constructor(private http: HttpClient) {}
 
@@ -18,5 +18,9 @@ export class TasksService {
 
   addTask(task: ITasks): Observable<ITasks> {
     return this.http.post<ITasks>(this.apiUrl, task);
+  }
+
+  deleteTask(task:ITasks){
+    return this.http.delete(this.apiUrl + task.id)
   }
 }
