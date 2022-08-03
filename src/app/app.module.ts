@@ -12,6 +12,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskItemsComponent } from './components/task-items/task-items.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FooterComponent } from './components/footer/footer.component';
     TaskItemsComponent,
     AddTaskComponent,
     FooterComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
