@@ -18,7 +18,7 @@ export class TaskItemsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  toggleTask() {
+  handleToggleTask() {
     this.task.reminder = !this.task.reminder;
   }
 

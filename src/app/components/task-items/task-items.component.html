@@ -1,6 +1,6 @@
 <div [ngClass]="task.reminder ? 'done' : ''" class="task-item">
   <div class="flex justify-between">
-    <div (click)="toggleTask()" class="texts">
+    <div (click)="handleToggleTask()" class="texts">
       <h4 class="font-bold text-base mb-1">{{ task.text }}</h4>
       <p class="text-slate-600 text-sm">{{ task.day }}</p>
     </div>
