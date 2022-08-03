@@ -11,6 +11,7 @@ import { ITasks } from './../../../interfaces/Task';
 export class TaskItemsComponent implements OnInit {
   @Input() task!: ITasks;
   @Output() deleteTask: EventEmitter<ITasks> = new EventEmitter();
+  @Output() toggleTask: EventEmitter<ITasks> = new EventEmitter();
 
   faTimes = faTimes;
 
@@ -18,8 +19,8 @@ export class TaskItemsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  handleToggleTask() {
-    this.task.reminder = !this.task.reminder;
+  handleToggleTask(task: ITasks) {
+    this.toggleTask.emit(task);
   }
 
   handleDeleteTask(task: ITasks) {
