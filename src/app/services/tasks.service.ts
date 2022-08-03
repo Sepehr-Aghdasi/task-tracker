@@ -30,4 +30,9 @@ export class TasksService {
   deleteTask(task: ITasks) {
     return this.http.delete(this.apiUrl + task.id);
   }
+
+  toggleTask(task: ITasks) {
+    const url = `${this.apiUrl}/${task.id}`;
+    return this.http.put<ITasks>(url, task);
+  }
 }
