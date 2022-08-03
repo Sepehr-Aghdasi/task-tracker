@@ -19,8 +19,7 @@ export class TaskItemsComponent implements OnInit {
   ngOnInit(): void {}
 
   doneTask() {
-    // this.task.reminder = !this.task.reminder;
-    console.log('toggle task');
+    this.task.reminder = !this.task.reminder;
   }
 
   handleDeleteTask(task: ITasks) {
